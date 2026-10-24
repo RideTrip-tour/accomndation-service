@@ -2,6 +2,7 @@ import logging.config
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from internal_middleware import build_user_context_middleware
 
 from app.utils.logging import LOGGING_CONFIG
 from config import settings
@@ -26,6 +27,8 @@ def create_app() -> FastAPI:
         redoc_url="/api/accommodations/redoc",
         openapi_url="/api/accommodations/openapi.json",
     )
+
+    app.middleware("http")(build_user_context_middleware(logger=logger))
 
     @app.get("/api/accommodations/health")
     async def health_check():

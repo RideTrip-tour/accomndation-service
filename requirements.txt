@@ -19,7 +19,9 @@ asyncpg==0.32.0
 click==8.5.0
     # via uvicorn
 fastapi==0.143.3
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   internal-middleware
 greenlet==3.5.6
     # via -r requirements.in
 h11==0.16.0
@@ -28,6 +30,8 @@ httptools==0.9.0
     # via uvicorn
 idna==3.20
     # via anyio
+internal-middleware @ git+ssh://git@github.com/RideTrip-tour/middlewares.git@1a1e4255964d9128360b19c3e9b52cae098a7b0a
+    # via -r requirements.in
 mako==1.4.3
     # via alembic
 markupsafe==3.0.4
