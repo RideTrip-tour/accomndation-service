@@ -6,4 +6,5 @@ asyncpg
 alembic
 structlog
 greenlet
-git+ssh://git@github.com/RideTrip-tour/middlewares.git@1a1e4255964d9128360b19c3e9b52cae098a7b0a#egg=internal-middleware
+git+https://github.com/RideTrip-tour/middlewares.git@1d944750324410930c4e4fd69c30e77ceba72d3e#egg=internal-middleware
+git+https://github.com/RideTrip-tour/internal_client.git@09b65936ef1e61b0666f3041fdfe43584be249af#egg=initial-client

@@ -12,10 +12,15 @@ annotated-types==0.8.0
     # via pydantic
 anyio==4.15.1
     # via
+    #   httpx
     #   starlette
     #   watchfiles
 asyncpg==0.32.0
     # via -r requirements.in
+certifi==2026.10.23
+    # via
+    #   httpcore
+    #   httpx
 click==8.5.0
     # via uvicorn
 fastapi==0.143.3
@@ -25,12 +30,22 @@ fastapi==0.143.3
 greenlet==3.5.6
     # via -r requirements.in
 h11==0.16.0
-    # via uvicorn
+    # via
+    #   httpcore
+    #   uvicorn
+httpcore==1.0.9
+    # via httpx
 httptools==0.9.0
     # via uvicorn
+httpx==0.28.1
+    # via initial-client
 idna==3.20
-    # via anyio
-internal-middleware @ git+ssh://git@github.com/RideTrip-tour/middlewares.git@1a1e4255964d9128360b19c3e9b52cae098a7b0a
+    # via
+    #   anyio
+    #   httpx
+initial-client @ git+https://github.com/RideTrip-tour/internal_client.git@09b65936ef1e61b0666f3041fdfe43584be249af
+    # via -r requirements.in
+internal-middleware @ git+https://github.com/RideTrip-tour/middlewares.git@1d944750324410930c4e4fd69c30e77ceba72d3e
     # via -r requirements.in
 mako==1.4.3
     # via alembic
@@ -46,6 +61,8 @@ pydantic-core==2.50.1
     # via pydantic
 pydantic-settings==2.16.0
     # via -r requirements.in
+pyjwt==2.15.1
+    # via initial-client
 python-dotenv==1.2.4
     # via
     #   pydantic-settings
