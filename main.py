@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from internal_middleware import build_user_context_middleware
 
+from app.client.gateway_client import GatewayClient
 from app.utils.logging import LOGGING_CONFIG
 from config import settings
 
@@ -14,7 +15,11 @@ logger = logging.getLogger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("accommodation-service is starting up...")
-    yield
+    app.state.gateway_client = GatewayClient()
+    try:
+        yield
+    finally:
+        await app.state.gateway_client.close()
     logger.info("accommodation-service is shutting down...")
 
 

@@ -6,6 +6,14 @@ class Settings(BaseSettings):
     app_name: str = "accommodation-service"
     debug: bool = False
 
+    gateway_url: str = "http://gateway:8000"
+    service_id: str = "accommodation"
+    service_token: str = ""
+    gateway_name: str = "Gate"
+    access_token_expire_sec: int = 60 * 15
+    jwt_secret: str = "secretsecretsecret"
+    jwt_algorithm: str = "HS256"
+
     db_host: str = Field(
         validation_alias="DB_ACCOMMODATION_SERVICE_HOST", default="postgres"
     )
